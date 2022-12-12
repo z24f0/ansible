@@ -5,18 +5,18 @@
     - name: create group
       ansible.builtin.group:
         name: hb-exploitation
-        state: present 
         gid: 12001
+        system: true
     - name: create user
       ansible.builtin.user:
         name: hb-exploit
         uid: 20001
-        password: "{{ 'password' | password_hash('sha512', 'mysecretsalt') }}"
+        password: "{{ 'tyty' | password_hash('sha512') }}"
+        append: true
         groups: 
           - hb-exploitation
           - sudo
           - www-data
-        state: present
         shell: "/bin/bash"
         system: false
         createhome: true
