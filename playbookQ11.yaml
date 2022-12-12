@@ -1,0 +1,24 @@
+- name: question11-12
+  hosts: all
+  become: true
+  tasks:
+    - name: create group
+      ansible.builtin.group:
+        name: hb-exploitation
+        state: present 
+        gid: 12001
+    - name: create user
+      ansible.builtin.user:
+        name: hb-exploit
+        uid: 20001
+        password: "{{ 'password' | password_hash('sha512', 'mysecretsalt') }}"
+        groups: 
+          - hb-exploitation
+          - sudo
+          - www-data
+        state: present
+        shell: "/bin/bash"
+        system: false
+        createhome: true
+        home: "/home/hb-exploitation"
+        comment: "creation d'un user"
