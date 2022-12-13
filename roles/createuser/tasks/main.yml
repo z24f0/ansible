@@ -1,0 +1,16 @@
+- name: create group
+  ansible.builtin.group:
+    name: albert
+    state: present
+  become: true
+
+- name: Create users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    state: present
+    password: "{{ item.password }}"
+    group: "{{ item.group }}"
+  loop:
+    - { name: 'John', password: 'tyty', group: 'sudo' }
+    - { name: 'Albert', password: 'tyty2', group: 'albert' }
+  become: true

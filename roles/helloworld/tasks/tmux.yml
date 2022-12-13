@@ -1,0 +1,13 @@
+- name: install tmux and tree
+  ansible.builtin.apt:
+    update_cache: true
+    become: true
+
+- name: install
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop: 
+    - tmux
+    - tree
+  become: true
