@@ -1,0 +1,5 @@
+- name: Creation de la base de donnees joomla
+  community.mysql.mysql_db:
+    name: "joomla"
+    state: present
+  become: true

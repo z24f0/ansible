@@ -1,0 +1,2 @@
+- name: Import de la tache createDB
+  import_tasks: createDB.yml
