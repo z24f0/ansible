@@ -1,6 +1,7 @@
 - name: Mise à jour du cache APT
   ansible.builtin.apt:
     update_cache: true
+  become: true
 
 - name: Installation tmux et emacs en mm tps (loop)  
   ansible.builtin.apt:
@@ -9,3 +10,4 @@
   loop:
     - tmux
     - emacs
+  become: true
