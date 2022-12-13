@@ -1,0 +1,11 @@
+- name: Import de la tache sudo
+  import_tasks: install_sudo.yml
+
+- name: Import de la tache wget
+  import_tasks: install_wget.yml
+
+- name: Import de la tache curl
+  import_tasks: install_curl.yml
+
+- name: Import de la tache tmux
+  import_tasks: install_tmux.yml

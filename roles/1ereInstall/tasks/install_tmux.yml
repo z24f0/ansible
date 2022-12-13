@@ -1,0 +1,11 @@
+- name: Mise à jour du cache APT
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Installation tmux et emacs en mm tps (loop)  
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - tmux
+    - emacs

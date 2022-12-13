@@ -1,0 +1,4 @@
+- name: Installation wget  
+  ansible.builtin.apt:
+    name: "wget"
+    state: present
