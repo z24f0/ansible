@@ -1,0 +1,4 @@
+- name: Installation curl  
+  ansible.builtin.apt:
+    name: "curl"
+    state: present

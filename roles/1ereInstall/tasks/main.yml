@@ -1,0 +1,5 @@
+- name: Import des taches
+  import_tasks: install_sudo.yml
+  import_tasks: install_wget.yml
+  import_tasks: install_curl.yml
+  import_tasks: install_tmux.yml

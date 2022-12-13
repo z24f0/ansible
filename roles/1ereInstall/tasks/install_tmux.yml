@@ -1,0 +1,4 @@
+- name: Installation tmux  
+  ansible.builtin.apt:
+    name: "tmux"
+    state: present

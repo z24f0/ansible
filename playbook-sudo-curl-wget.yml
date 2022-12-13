@@ -1,0 +1,4 @@
+- name: Playbook
+  hosts: all
+  roles:
+    - 1ereInstall
