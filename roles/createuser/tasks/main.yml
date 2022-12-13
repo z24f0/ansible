@@ -1,0 +1,16 @@
+- name: create user
+  ansible.builtin.user:
+    name: hb-exploit
+    uid: 20001
+    password: "{{ 'tyty' | password_hash('sha512') }}"
+    append: true
+    groups: 
+      - hb-exploitation
+      - sudo
+      - www-data
+    shell: "/bin/bash"
+    system: false
+    createhome: true
+    home: "/home/hb-exploitation"
+    comment: "creation d'un user"
+  become: true
