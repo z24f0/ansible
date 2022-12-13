@@ -1,0 +1,6 @@
+- name: create group
+  ansible.builtin.group:
+    name: hb-exploitation
+    gid: 12001
+    system: true
+  become: true
