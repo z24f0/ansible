@@ -1,4 +1,8 @@
+- name: Mise à jour du cache APT
+  ansible.builtin.apt:
+    update_cache: true
+
 - name: Installation tmux  
   ansible.builtin.apt:
     name: "tmux"
-    state: present
+    state: latest
