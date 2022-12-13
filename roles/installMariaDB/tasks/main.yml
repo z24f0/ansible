@@ -5,6 +5,11 @@
   become: true
 
 - name: change listener port to 23306 instead of 3306
-  community.mysql.mysql_db:
-    login_port: 23306
+  #community.mysql.mysql_db:
+  #  name: change port
+  lineinfile:
+    path: /etc/mysql/mariadb.cnf
+    regexp: '^port'
+    line: 'port = 23306'
+    backup: yes
   become: true    
