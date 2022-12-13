@@ -2,7 +2,10 @@
   ansible.builtin.apt:
     update_cache: true
 
-- name: Installation tmux  
+- name: Installation tmux et emacs en mm tps (loop)  
   ansible.builtin.apt:
-    name: "tmux"
+    name: "{{ item }}"
     state: latest
+  loop:
+    - tmux
+    - emacs
