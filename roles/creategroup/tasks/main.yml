@@ -1,8 +1,8 @@
 - name: create group
   ansible.builtin.group:
-    name: "{{ item }}"
-    gid: "{{ gid }}"
+    name: "{{ item.name }}"
+    gid: "{{ item.gid }}"
     system: true
-  loop: "{{ group_name }}"
+    state: present 
+  loop: "{{ group_grp }}"
   become: true
-  state: present

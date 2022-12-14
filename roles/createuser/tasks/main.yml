@@ -1,7 +1,7 @@
-- name: create user
+- name: create hb-exploit
   ansible.builtin.user:
     name: "{{ item.name }}"
-    #uid: "{{ uid }}"
+    uid: "{{ uid }}"
     password: "{{ item.password }}"
     append: true
     groups: "{{ item.groups }}"
@@ -10,6 +10,22 @@
     createhome: true
     home: "/home/{{ item.name }}"
     comment: "{{ comment }} {{ item.name }}"
+    state: present
+  loop: "{{ hb }}"
+  become: true
+
+- name: create users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    #uid: "{{ uid }}"
+    password: "{{ item.password }}"
+    append: true
+    #groups: "{{ item.groups }}"
+    shell: "{{ shell }}"
+    system: false
+    createhome: true
+    home: "/home/{{ item.name }}"
+    comment: "{{ comment }} {{ item.name }}"
+    state: present
   loop: "{{ userclient }}"
-  state: present
   become: true

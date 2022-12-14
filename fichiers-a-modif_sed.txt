@@ -1,0 +1,7 @@
+roles/creategroup/tasks/main.yml
+roles/1ereInstall/tasks/install_curl.yml
+roles/1ereInstall/tasks/install_tmux.yml
+roles/1ereInstall/tasks/install_tmux.yml
+roles/1ereInstall/tasks/install_sudo.yml
+roles/1ereInstall/tasks/install_wget.yml
+roles/createuser/tasks/main.yml

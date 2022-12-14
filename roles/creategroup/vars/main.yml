@@ -1,2 +1,2 @@
-group_name: hb-exploitaion
-gid: 12001
+group_grp:
+  - {name: "hb-exploitation", gid: 12001}

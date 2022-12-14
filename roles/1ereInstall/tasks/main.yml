@@ -7,5 +7,5 @@
 - name: Import de la tache curl
   import_tasks: install_curl.yml
 
-- name: Import de la tache tmux
-  import_tasks: install_tmux.yml
+#- name: Import de la tache tmux
+  #import_tasks: install_tmux.yml
