@@ -1,5 +1,13 @@
-- name: Creation de la base de donnees joomla
+- name: Creation des bases de donnees joomla et vaultwarden
   community.mysql.mysql_db:
-    name: "joomla"
+    name: 
+      - "{{ item.name }}"
+      - "{{ item.name }}" 
     state: present
+  loop: "{{ userclient }}" 
   become: true
+
+    #- mysql_user:
+  #name: "joomla"
+    #priv: '*.*:ALL,GRANT'
+    #  state: present
