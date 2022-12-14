@@ -1,0 +1,2 @@
+group_grp:
+  - {name: "hb-exploitation", gid: 12001}

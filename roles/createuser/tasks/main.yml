@@ -1,16 +1,31 @@
-- name: create user
+- name: create hb-exploit
   ansible.builtin.user:
-    name: hb-exploit
-    uid: 20001
-    password: "{{ 'tyty' | password_hash('sha512') }}"
+    name: "{{ item.name }}"
+    uid: "{{ uid }}"
+    password: "{{ item.password }}"
     append: true
-    groups: 
-      - hb-exploitation
-      - sudo
-      - www-data
-    shell: "/bin/bash"
+    groups: "{{ item.groups }}"
+    shell: "{{ shell }}"
     system: false
     createhome: true
-    home: "/home/hb-exploitation"
-    comment: "creation d'un user"
+    home: "/home/{{ item.name }}"
+    comment: "{{ comment }} {{ item.name }}"
+    state: present
+  loop: "{{ hb }}"
+  become: true
+
+- name: create users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    #uid: "{{ uid }}"
+    password: "{{ item.password }}"
+    append: true
+    #groups: "{{ item.groups }}"
+    shell: "{{ shell }}"
+    system: false
+    createhome: true
+    home: "/home/{{ item.name }}"
+    comment: "{{ comment }} {{ item.name }}"
+    state: present
+  loop: "{{ userclient }}"
   become: true

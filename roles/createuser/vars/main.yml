@@ -1,0 +1,8 @@
+uid: 20001
+hb: 
+  - { name: "hb-exploit", groups: "hb-exploitation", password: "tyty"} 
+shell: "/bin/bash"
+userclient:
+  - { name: "joomla", password: "joomla"} 
+  - { name: "vaultwarden", password: "vaultwarden"} 
+comment: "Creation du user "

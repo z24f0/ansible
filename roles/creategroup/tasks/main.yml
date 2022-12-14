@@ -1,6 +1,8 @@
 - name: create group
   ansible.builtin.group:
-    name: hb-exploitation
-    gid: 12001
+    name: "{{ item.name }}"
+    gid: "{{ item.gid }}"
     system: true
+    state: present 
+  loop: "{{ group_grp }}"
   become: true
