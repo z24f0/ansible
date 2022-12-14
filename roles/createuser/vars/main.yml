@@ -2,5 +2,5 @@ uid: 20001
 shell: "/bin/bash"
 userclient:
   - { name: "joomla", groups: "joomla", password: "joomla"} 
-  - { name: "vaultwaren", groups: "vaultwaren", password: "vaultwaren"} 
+  - { name: "vaultwarden", groups: "vaultwarden", password: "vaultwarden"} 
 comment: "Creation du user "
