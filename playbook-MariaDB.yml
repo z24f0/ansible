@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: 192.168.56.103
   roles:
     - installMariaDB
     - createDB 

@@ -1,11 +1,17 @@
-- name: Creation des bases de donnees joomla et vaultwarden
-  community.mysql.mysql_db:
-    name: "{{ item.name }}"
+- name: Creations des utilisateurs
+  mysql_user:
+    name: "{{ item }}"
+    password: "{{ item }}"
+    login_unix_socket: "/var/run/mysqld/mysqld.sock"
+    priv: '*.*:ALL,GRANT'
     state: present
-  loop: "{{ userclient }}" 
+  loop: "{{ bdd }}"    
   become: true
 
-    #- mysql_user:
-  #name: "joomla"
-    #priv: '*.*:ALL,GRANT'
-    #  state: present
+- name: Creation des bases de donnees joomla et vaultwarden
+  community.mysql.mysql_db:
+    name: "{{ item }}"
+    state: present
+    login_unix_socket: "/var/run/mysqld/mysqld.sock"
+  loop: "{{ bdd }}" 
+  become: true 
