@@ -1,0 +1,15 @@
+- name: install MariaDB to create a database
+  ansible.builtin.apt:
+    name: mariadb-server
+    state: latest
+  become: true
+
+- name: change listener port to 23306 instead of 3306
+  #community.mysql.mysql_db:
+  #  name: change port
+  lineinfile:
+    path: /etc/mysql/mariadb.cnf
+    regexp: '^port'
+    line: 'port = 23306'
+    backup: yes
+  become: true    
